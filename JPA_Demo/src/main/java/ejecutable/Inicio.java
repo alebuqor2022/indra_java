@@ -1,6 +1,8 @@
 package ejecutable;
 
+import dao.DaoEmpleado;
 import dao.DaoPersona;
+import model.Empleado;
 import model.Persona;
 
 public class Inicio {
@@ -18,6 +20,12 @@ public class Inicio {
 		System.out.println("---- PERSONA MODIFICADA de base de datos -----------");
 		System.out.println(p);
 		System.out.println(p.getNombre());
+		
+		Empleado e =DaoEmpleado.find(2L);
+		System.out.println("---- EMPLEADO de base de datos -----------");
+		System.out.println(e.getUsuario());
+		System.out.println(e.getPerson().getNombre());
+		
 
 	}
 
