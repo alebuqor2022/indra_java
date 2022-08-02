@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mundo" class="com.indra.spring.beans.HolaMundo">
+		<property name="saludo" value="hola, buen dia!!"></property>
+	</bean>
+	<bean id="persona" class="com.indra.spring.beans.Persona">
+		<constructor-arg type="int" index="0" value="1"></constructor-arg>
+		<constructor-arg type="String" index="2" value="Ale"></constructor-arg>
+		<constructor-arg type="String" index="1"
+			value="Alejandra"></constructor-arg>
+	</bean>
+	<bean id="persona1" class="com.indra.spring.beans.Persona">
+		<constructor-arg type="int" value="1"></constructor-arg>
+	</bean>
+	<bean id="ciudad" class="com.indra.spring.beans.Ciudad">
+		<property name="nombre" value="Calpe"></property>
+	</bean>
+	<bean id="pais" class="com.indra.spring.beans.Pais">
+		<property name="nombre" value="España!! y ole!!"></property>
+		<property name="miciudad" ref="ciudad"></property>
+	</bean>
+	<bean id="persona2" class="com.indra.spring.beans.Persona">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Alejandra"></property>
+		<property name="apodo" value="Ale"></property>
+		<property name="mipais" ref="pais"></property>
+	</bean>
+
+</beans>
