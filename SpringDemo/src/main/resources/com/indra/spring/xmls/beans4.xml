@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="persona" class="com.indra.spring.beans.Persona"
+		name="personaName">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Alejandra"></property>
+		<property name="apodo" value="Ale"></property>
+		<property name="mipais" ref="pais"></property>
+	</bean>
+	<bean id="pais" class="com.indra.spring.beans.Pais">
+		<property name="nombre" value="Argentina"></property>
+		<property name="ciudades">
+			<list>
+				<ref bean="ciudad1"></ref>
+				<ref bean="ciudad2"></ref>
+			</list>
+		</property>
+	</bean>
+	<bean id="ciudad1" class="com.indra.spring.beans.Ciudad">
+		<property name="nombre" value="BsAs"></property>
+	</bean>
+	<bean id="ciudad2" class="com.indra.spring.beans.Ciudad">
+		<property name="nombre" value="Rosario"></property>
+	</bean>
+	<alias name="persona" alias="personaAlias"></alias>
+</beans>

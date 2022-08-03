@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 	<bean id="person" class="com.indra.spring.beans.Person" autowire="byName"> -->
+<!-- 	<bean id="person" class="com.indra.spring.beans.Person" autowire="byType"> -->
+	<bean id="person" class="com.indra.spring.beans.Person" autowire="constructor">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Alejandra"></property>
+		<property name="apodo" value="Ale"></property>
+	</bean>
+	<bean id="country" class="com.indra.spring.beans.Country">
+		<property name="nombre" value="España"></property>
+	</bean>
+</beans>
