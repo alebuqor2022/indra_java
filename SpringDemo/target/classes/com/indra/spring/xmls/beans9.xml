@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+    <bean id="persona2" class="com.indra.spring.beans.Persona2" autowire="byName">
+		<property name="apodo" value="Ale"></property>
+	</bean>
+	<bean id="mipais" class="com.indra.spring.beans.Pais2" autowire="byName" >
+		<property name="nombre" value="Argentina"></property>
+	</bean>
+	<bean id="miciudad" class="com.indra.spring.beans.Ciudad2">
+			<property name="nombre" value="Zarate"></property>
+	</bean>
+
+</beans>
+ 

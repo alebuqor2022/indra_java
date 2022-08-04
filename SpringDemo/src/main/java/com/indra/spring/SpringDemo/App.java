@@ -8,9 +8,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.indra.spring.beans.AppConfig;
 import com.indra.spring.beans.Ciudad;
 import com.indra.spring.beans.HolaMundo;
+import com.indra.spring.beans.Jugador;
 import com.indra.spring.beans.Person;
+import com.indra.spring.beans.Persona2;
 import com.indra.spring.beans.Persona;
-
 /**
  * Hello world!
  *
@@ -18,10 +19,22 @@ import com.indra.spring.beans.Persona;
 public class App 
 {
 	public static void main(String[] args ) {
+		// testea los 3 casos de ciclo de vida de los Beans
 		ApplicationContext appContext=
 	    			new ClassPathXmlApplicationContext("com/indra/spring/xmls/beans.xml");
 	    	
-	    	Persona p=(Persona)appContext.getBean("persona"); // por id
+	    	Jugador p=(Jugador)appContext.getBean("messi"); // por id, esta en el @Component("messi")
+	    	System.out.println(p.getId()+", "+ p.getNombre());
+	
+	((ConfigurableApplicationContext)appContext).close();
+}
+	
+	public static void main10(String[] args ) {
+		// testea los 3 casos de ciclo de vida de los Beans
+		ApplicationContext appContext=
+	    			new ClassPathXmlApplicationContext("com/indra/spring/xmls/beans.xml");
+	    	
+	    	Persona2 p=(Persona2)appContext.getBean("persona2"); // por id
 	    	System.out.println(p.getId()+", "+ p.getNombre() + ", " + p.getApodo());
 	    	System.out.println(p.getMipais().getNombre());
 	    	System.out.println(p.getMipais().getMiciudad().getNombre());
