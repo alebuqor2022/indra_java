@@ -58,7 +58,7 @@ public class CourseController {
 								@RequestParam("sortField") String sortField,
 								@RequestParam("sortDir") String sortDir,
 								Model model) {
-		int pageSize = 5;
+		int pageSize = 4;
 
 		Page<Course> page = courseService.findPaginated(pageNo, pageSize, sortField, sortDir);
 		List<Course> listCourses = page.getContent();
