@@ -5,25 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.stereotype.Service;
 
 import com.indra.SpringBootDemo.model.Course;
 import com.indra.SpringBootDemo.repository.CourseRepository;
 
-public class CourseServiceImpl implements CourseService {
+@Service
+public class CourseServiceImpl implements CourseService{
+
 	@Autowired
 	private CourseRepository courseRepository;
-	
-	@Override
-	public Course getCourseById(long id) {
-	Optional<Course> optionalCourse=courseRepository.findById(id);
-	Course course=null;
-	if (optionalCourse.isPresent()) {
-		course=optionalCourse.get();
-	}else {
-		throw new RuntimeException("curso no encontrado: " + id);
-	}
-		return course;
-	}
 
 	@Override
 	public List<Course> getAllCourses() {
@@ -36,6 +27,18 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
+	public Course getCourseById(long id) {
+		Optional<Course> optionalCourse = courseRepository.findById(id);
+		Course course = null;
+		if (optionalCourse.isPresent()) {
+			course = optionalCourse.get();
+		} else {
+			throw new RuntimeException("Course not found for id : " + id);
+		}
+		return course;
+	}
+
+	@Override
 	public void deleteCourseById(long id) {
 		this.courseRepository.deleteById(id);
 	}
@@ -43,11 +46,9 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public Page<Course> findPaginated(int pageNum, int pageSize, String sortField, String sortDirection) {
 		Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
-		Sort.by(sortField).descending();
+				Sort.by(sortField).descending();
 
 		Pageable pageable = PageRequest.of(pageNum - 1, pageSize, sort);
-	return this.courseRepository.findAll(pageable);
+		return this.courseRepository.findAll(pageable);
 	}
-
-	
 }
