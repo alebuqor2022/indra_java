@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Biblioteca</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <h1>Gestion de Prestamo</h1>
+    <h2>Actulizacion de Prestamo</h2>
+    <form action="#" th:action="@{/prestamo/savePrestamo}" th:object="${lector}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input type="text" th:field="*{inicio}" class="form-control mb-4 col-4" placeholder="Inicio">
+        <input type="text" th:field="*{fin}" class="form-control mb-4 col-4" placeholder="Fin">
+        <input type="text" th:field="*{fk_lector}" class="form-control mb-4 col-4" placeholder="FK_Lector">
+        <input type="text" th:field="*{fk_libro}" class="form-control mb-4 col-4" placeholder="FK_Libro">
+
+        <button type="submit" class="btn btn-info col-2">Guardar prestamo</button>
+    </form>
+    <hr>
+    <a th:href="@{/prestamo}">Volver al listado</a>
+</div>
+</body>
+</html>
